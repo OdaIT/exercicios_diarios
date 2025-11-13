@@ -40,3 +40,14 @@ for (let i = 10; i >= 0; --i){
         console.log (String(i));
     }
 }
+
+//13/11/2025 Aula 8
+//Des 1
+
+let saldo = 0;
+const LIMITE = 50;
+const VALOR_DEPOSITO = 10;
+
+while(saldo < LIMITE){
+    saldo+=VALOR_DEPOSITO;
+}
