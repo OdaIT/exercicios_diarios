@@ -267,3 +267,142 @@ maior(1,3)
 //print(executar(somarDois,11,3))
 
 //saudar(prompt("Nome","Dan"));
+
+
+function print(a){
+    console.log(a);
+}
+
+//Exercicio 1
+
+function saudar(name){
+  print("Olá "+ name + "!");
+}
+
+//Exercício 2
+
+function dobro(n){ //devolve o dobro
+  return n*2;
+}
+
+//Exercicio 3
+
+function media(a,b){
+  return (a+b)/2;
+}
+
+//Exercicio 4
+
+function maior(a,b){
+  if (a > b){
+    print("A é maior que B")
+  }else if(a < b){
+    print("A é menor que B")
+  }else{
+    print("A é igual a B")
+  }
+}
+
+//Exercício 5
+
+function contarCaracteres(texto){
+    let length = texto.length;
+    print(length);
+}
+
+//Aula 11 18/11/2025
+
+//4Fun
+function arvoreNatal(numEstrelas){
+    let estrelas = "*";
+    let espacos = " ";
+    let base = numEstrelas / 2 + numEstrelas / 2.5;
+
+    while (numEstrelas > 0) {
+    console.log(`${espacos.repeat(numEstrelas)}${estrelas}`);
+    estrelas += "**";
+    numEstrelas--;
+    if (numEstrelas == 0) {
+        console.log(`${espacos.repeat(base)}|   |`);
+        console.log(`${espacos.repeat(base)}|   |`);
+        }
+    }
+}
+
+
+
+
+// Exe 1
+
+function nested_Three(n){
+    let estrela = "";
+    for(let i = 0; i < n; i++){
+        estrela += "*"
+        for(let e = 0; e <= i; e++){
+            console.log(estrela)
+        }
+    }
+}
+
+//Exe 2
+
+function tabuada(a){
+    for(let i = 1; i <= a; i++){
+        for(let a = 1;a <= 10; a++){
+            console.log(`${i} x ${a} = ${i*a}`)
+    }
+}
+}
+
+//Exe 3/4
+
+function tabuadaLimite(a,limite){
+    for(let i = 1; i <= a; i++){
+        for(let a = 1;a <= limite; a++){
+            console.log(`${i} x ${a} = ${i*a}`)
+        }
+    }
+}
+
+//Exe 5
+
+function processarNumero(a,b){
+    return tabuadaLimite(a,b)
+}
+
+//Exe 6 Tudo variaveis dinamicas
+
+function tabuadaCustom(donMin,donMax,multMin,multMax){
+    for(let i = donMin; i <= donMax; i++){
+        for(let a = multMin;a <= multMax; a++){
+            console.log(`${i} x ${a} = ${i*a}`)
+        }
+    }
+}
+
+//Autonomo 10
+//Exe 8
+
+function minutosParaSegundos(minutos){
+    return String(minutos * 60)+" segundos";
+}
+
+//console.log(minutosParaSegundos(10));
+
+function aoQuadrado(n){
+    return n*n;
+}
+
+function incrementar(n){
+    return n+1
+}
+
+function decrementar(n){
+    return n-1
+}
+
+function aplicarFuncao(n, func){
+    return console.log(func(n));
+}
+
+//aplicarFuncao(8, decrementar)
