@@ -1,110 +1,75 @@
-//Aula 12 19/11/2025
-//Slide 12
-
-const alunos = {
-    nome : "Ana",
-    idade: 17,
-    curso: "Informática",
-    apresentar(){
-        console.log(`Olá. eu sou a ${this.nome}`)
-    }
-};
-
-//alunos.apresentar();
-alunos.turma = "12ºA";
-
-/*for (let chave in alunos){
-    console.log(chave, alunos[chave]);
-}*/
-
-const cliente = {
-    nome : "Maria",
-    idade : 30,
-    endereco: {
-        rua : "Rua das Flores",
-        cidade : "Lisboa",
-        pais : "Portugal"
-    }
-};
-
-// console.log(cliente.endereco.cidade); -> Lisboa
-
-//Exercícios Guiados — Objetos em JavaScript
+// Exercícios Guiados – Arrays em JavaScript 21/11/2025
 
 //Exe 1
 
-const pessoa = {
-    nome : "Nicolau",
-    idade : 120,
-    apresentacao(){
-        console.log(`Nome : ${this.nome}\nIdade : ${this.idade}`);
-    }
-};
+const frutas = ["maçã", "banana", "laranja"];
+console.log(frutas);
 
-//pessoa.apresentacao();
-
-//Exe 2=
-function mostrarInfo(pessoa){
-    for (let a in pessoa){
-        if(typeof pessoa[a] === "function"){
-          pessoa[a]();
-        }else{
-            console.log(a, pessoa[a])
-        }
-    }
+//Exe 2
+console.log(frutas[0]);
+console.log(frutas[(frutas.length-1)]);
+for(let i = 0; i < frutas.length; i++){
+    console.log(`${i} -> ${frutas[i]}`);
 }
 
-mostrarInfo(pessoa);
+// Exe 3
 
-//Exe 3
+frutas.push("uva");
+frutas.unshift("kiwi")
+for(let i = 0; i < frutas.length; i++){
+    console.log(`${i} -> ${frutas[i]}`);
+}
+console.log("Fruta com push de uva e unshift de kiwi.");
 
-const carro = {
-    marca : "Purrari",
-    modelo : "Miaurossa 282 GT",
-    descrever(){
-        console.log(`Marca : ${this.marca}\nModelo : ${this.modelo}`);
-    }
-};
+frutas.pop()
+frutas.shift()
+for(let i = 0; i < frutas.length; i++){
+    console.log(`${i} -> ${frutas[i]}`);
+}
+console.log("Fruta com pop(último elemento removido) e shift(remove o primeiro elemento).");
 
 //Exe 4
 
-function fazerAniversario(){
-    pessoa.idade += 1;
-    console.log(pessoa.idade);
-}
-
-//fazerAniversario()
+console.log(`banana no array fruta -> ${frutas.includes("banana")}`);
+console.log(`posição de laranja no array fruta -> ${frutas.indexOf("laranja")}`);
 
 //Exe 5
 
-const retangulo = {
-    largura : 10,
-    altura : 5,
-    area(){
-        return console.log(this.altura*this.largura);
-    }
-};
+frutas.forEach((fruta,i) => {
+    console.log(`Fruta: ${fruta}`)
+});
 
-// Exe 6
+//Exe 9
 
-function processar(obj, callback){
-
+function processarArray(array, funcao){
+    return funcao(array)
 }
 
-//Exe 7
-
-const aluno = {
-    notaUm : Number(prompt("Nota 1: ")),
-    notaDois : Number(prompt("Nota 2: ")),
-    notaTres : Number(prompt("Nota 3: ")),
-    calcularMedia(){
-        console.log((this.notaUm+this.notaDois+this.notaTres)/3);
+function callback(array){
+    for(let i = 0; i < frutas.length; i++){
+    console.log(`Olá ${frutas[i]}`);
     }
 }
-//aluno.calcularMedia()
 
-//Exe 8
+processarArray(frutas,callback);
 
-function criarPessoa(nome,idade){
-    
+//Exe 2 with extra steps (verificar que o array está realmente na posição correta)
+
+console.log(frutas[0]);
+console.log(frutas[(frutas.length-1)]);
+for(let i = 0; i < frutas.length; i++){
+    if (frutas.indexOf(frutas[i]) == 0 || frutas.indexOf(frutas[i]) == (frutas.length-1)){ // que pode ser substituido por (i == 0 || i == (frutas.length-1))
+        console.log(`${i} -> ${frutas[i]}`)
+    };
+}
+
+
+
+
+//Exe Extra
+
+const numeros = [1,2,3];
+for(let i = 0; i < numeros.length; i++){
+    numeros[i] = numeros[i] * 2;
+    console.log(`${numeros[i]}`)
 }
