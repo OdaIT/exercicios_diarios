@@ -529,7 +529,6 @@ frutas.forEach((fruta, i) => {
 
 //Exe 1
 
-const frutas = ["maçã", "banana", "laranja"];
 console.log(frutas);
 
 //Exe 2
