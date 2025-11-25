@@ -1,123 +1,70 @@
-//Exercícios Autônomos 14 – Arrays em JavaScript 23/11/2025
+//Aula 13 Autonomo - Exercícios II — Objetos, Funções e Ciclos em JavaScript
 
 //Exe 1
 
-const numeros = [2,3,5,7,11,13,17,19,23,31];
-
-function imprimeArray(array){
-    for( let i = 0; i < array.length; i++){
-    console.log(array[i]);
+class Conta {
+    constructor(titular, saldo){
+        this.titular = titular;
+        this.saldo = saldo;
+    };
+    depositar(valor) {
+        this.saldo += valor;
+        };
+    levantar(valor) {
+        if(this.saldo > valor){
+            this.saldo -= valor;
+        }else{
+            console.log("Saldo insuficiente.")
+        };
+        
+    };
+    aplicarJuros(taxa, anos){
+        for(let i = 1; i <= anos; i++)
+        this.saldo *= (1+taxa)
+        this.mostrarSaldo()
+    };
+    mostrarSaldo(){
+        console.log(`${this.titular}: Saldo atual = ${this.saldo.toFixed(2)}`);
     };
 }
 
-//Exe 2
-
-function somaElementos(array){
-    var elementosSomados = 0;
-    for(let i = 0; i < array.length; i++){
-        elementosSomados += array[i];
+const conta1 = new Conta("Danilo", 1000);
+const conta2 = new Conta("Francisco", 500);
+const c1 = new Cliente ("Danilo", "Quintal", conta1)
+const c2 = new Cliente ("Francisco", "Quintal", conta2)
+class Cliente {
+    constructor(primeiroNome, ultimoNome, conta){
+        this.primeiroNome = primeiroNome;
+        this.ultimoNome = ultimoNome;
+        this.conta = conta;
     }
-    console.log(elementosSomados);
-    return elementosSomados;
-}
+    tranferir(valor, outraConta){
+        if(this.Conta.saldo > valor){
+            
+        }
 
-//somaElementos(numeros);
-
-//Exe 3
-
-function verificaPares(array){
-    for(let i = 0; i < array.length; i++){
-        if((array[i]%2) == 0){
-            console.log(`${array[i]} é par. `);
+    }
+    mostrarSaldo(){
+        Conta.mostrarSaldo()
+    }
+    aniversario(anos){
+        for(let i = 1; i <= anos; i++){
+            this.Conta.saldo += bonusAniversario;
         }
     }
-}
+    presentear(valor, outroCliente){
 
-//verificaPares(numeros);
-
-//Exe 4
-
-function duplica(array){
-    for(let i = 0; i < array.length; i++){
-        array[i] *= 2;
     }
-    return array;
 }
 
-//imprimeArray(duplica(numeros));
-
-//Exe 5
-
-function exeCinco(array){
-    array.forEach((elementos, i) => console.log(`Indice ${i} : ${elementos}`));
+class Banco {
+    constructor(){}
 }
 
-//exeCinco(numeros)
-
-//Exe 6
-
-function existe(array,num){
-    console.log(numeros.includes(num));
+class Gerente {
+    constructor(){}
 }
 
-//existe(numeros,5)
-
-//Exe 7
-
-function adiciona(array, primeiroNumero, ultimoNumero){
-    numeros.unshift(primeiroNumero);
-    console.log(`${numeros[0]} adicionado no início do array.`);
-    numeros.push(ultimoNumero);
-    console.log(`${numeros[(numeros.length-1)]} adicionado ao fim do array.`)
+class CaixaEletronico {
+    constructor(){}
 }
-
-//adiciona(numeros,0,22)
-
-function remove(array){
-    console.log(`${numeros[0]} adicionado no início do array.`);
-    numeros.shift();
-    console.log(`${numeros[(numeros.length-1)]} adicionado ao fim do array.`)
-    numeros.pop();
-}
-
-//imprimeArray(numeros) , remove(numeros), imprimeArray(numeros);
-
-//Exe 8
-
-function mediaArray(array){
-    let media = 0;
-    for( let i = 0; i < array.length; i++){
-    media += array[i];
-    };
-    console.log(`A média do array é ${media/array.length}`)
-}
-
-//mediaArray(numeros);
-
-//Exe 9
-const listaProdutos = []; //"tomate", "alface", "cebola", "arroz"
-
-function produtos(nome, preco, quantidade){
-    this.nome = nome;
-    this.preco = preco;
-    this.quantidade = quantidade;
-    listaProdutos.push(this);
-}
-
-
-
-const tomate = new produtos("tomate", 2.5, 10);
-const alface = new produtos("alface", 1.5, 5);
-const cebola = new produtos("cebola", 3, 15);
-const arroz = new produtos("arroz", 2.5, 20);
-
-//console.log(`Produto - ${tomate.nome}\nPreço - ${tomate.preco} €\nQuantidade - ${tomate.quantidade}`);
-
-function mostraProdutos(){
-    for( let i = 0; i < listaProdutos.length; i++){
-        console.log(`Produto - ${(listaProdutos[i]).nome}\nPreço - ${listaProdutos[i].preco} €\nQuantidade - ${listaProdutos[i].quantidade}`);
-        console.log(listaProdutos[i]);
-    };
-}
-
-mostraProdutos()
