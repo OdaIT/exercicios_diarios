@@ -1,70 +1,78 @@
-//Aula 13 Autonomo - Exercícios II — Objetos, Funções e Ciclos em JavaScript
+//Aula do dia 26/11/2025 Exercícios Guiados – Arrays em JavaScript
+
+const fruta = ["maçã", "banana", "laranja"];
+
+//Exe 5
+
+function imprimeArrayForEach(){
+    fruta.forEach((valor,indice) => {
+    console.log(`Fruta : ${valor}`)
+});
+}
+
+//Exe 6
+const numeros = [1, 2, 3, 4, 5];
+
+function quadrado(array){
+    const quadrados = array.map(n => n ** 2);
+console.log(quadrados);
+}
+
+//quadrado(numeros);
+
+
+// Exercícios Guiados – Arrays de Objetos com map(), filter() e reduce()
 
 //Exe 1
 
-class Conta {
-    constructor(titular, saldo){
-        this.titular = titular;
-        this.saldo = saldo;
-    };
-    depositar(valor) {
-        this.saldo += valor;
-        };
-    levantar(valor) {
-        if(this.saldo > valor){
-            this.saldo -= valor;
-        }else{
-            console.log("Saldo insuficiente.")
-        };
-        
-    };
-    aplicarJuros(taxa, anos){
-        for(let i = 1; i <= anos; i++)
-        this.saldo *= (1+taxa)
-        this.mostrarSaldo()
-    };
-    mostrarSaldo(){
-        console.log(`${this.titular}: Saldo atual = ${this.saldo.toFixed(2)}`);
-    };
+const pessoas = [
+    { nome : "Ana", idade : 20},
+    { nome : "João", idade : 22},
+    { nome : "Maria", idade : 19},
+    { nome : "Jonas", idade : 28}
+];
+
+function extrairNome(array,dado){
+    const listaNomes = array.map(pessoa => pessoa[dado]);
+    console.log(listaNomes);
 }
 
-const conta1 = new Conta("Danilo", 1000);
-const conta2 = new Conta("Francisco", 500);
-const c1 = new Cliente ("Danilo", "Quintal", conta1)
-const c2 = new Cliente ("Francisco", "Quintal", conta2)
-class Cliente {
-    constructor(primeiroNome, ultimoNome, conta){
-        this.primeiroNome = primeiroNome;
-        this.ultimoNome = ultimoNome;
-        this.conta = conta;
-    }
-    tranferir(valor, outraConta){
-        if(this.Conta.saldo > valor){
-            
-        }
+//extrairNome(pessoas,"idade");
 
-    }
-    mostrarSaldo(){
-        Conta.mostrarSaldo()
-    }
-    aniversario(anos){
-        for(let i = 1; i <= anos; i++){
-            this.Conta.saldo += bonusAniversario;
-        }
-    }
-    presentear(valor, outroCliente){
+//Exe 2
 
-    }
+function adicionarPropriedade(){
+
 }
 
-class Banco {
-    constructor(){}
+//Exe 3
+
+function maiorDeIdade(array,dado){
+    const maiorIdade = array.filter(i => i[dado] >= 25)
+    console.log(maiorIdade)
 }
 
-class Gerente {
-    constructor(){}
+//maiorDeIdade(pessoas, "idade");
+
+//Exe 4
+
+function procurarNome(array, nomes){
+    const procuraN = array.filter(i => i.nome.toLowerCase() === nomes.toLowerCase())
+    console.log(procuraN)
 }
 
-class CaixaEletronico {
-    constructor(){}
+//procurarNome(pessoas, "Jonas")
+
+//Exe 5
+
+function converteEmFrase(array){
+    console.log(array.map(p => `${p.nome} tem ${p.idade} anos.`))
+}
+
+//converteEmFrase(pessoas);
+
+//Exe 6
+
+function MédiaIdades(){
+   let somaIdades = pessoas.reduce((acc, p) => (acc + p.idade), 0);
 }
