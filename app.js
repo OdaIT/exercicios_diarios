@@ -8,7 +8,7 @@ function imprimeArrayForEach(){
     fruta.forEach((valor,indice) => {
     console.log(`Fruta : ${valor}`)
 });
-}
+};
 
 //Exe 6
 const numeros = [1, 2, 3, 4, 5];
@@ -16,7 +16,7 @@ const numeros = [1, 2, 3, 4, 5];
 function quadrado(array){
     const quadrados = array.map(n => n ** 2);
 console.log(quadrados);
-}
+};
 
 //quadrado(numeros);
 
@@ -35,7 +35,7 @@ const pessoas = [
 function extrairNome(array,dado){
     const listaNomes = array.map(pessoa => pessoa[dado]);
     console.log(listaNomes);
-}
+};
 
 //extrairNome(pessoas,"idade");
 
@@ -43,14 +43,14 @@ function extrairNome(array,dado){
 
 function adicionarPropriedade(){
 
-}
+};
 
 //Exe 3
 
 function maiorDeIdade(array,dado){
     const maiorIdade = array.filter(i => i[dado] >= 25)
     console.log(maiorIdade)
-}
+};
 
 //maiorDeIdade(pessoas, "idade");
 
@@ -59,7 +59,7 @@ function maiorDeIdade(array,dado){
 function procurarNome(array, nomes){
     const procuraN = array.filter(i => i.nome.toLowerCase() === nomes.toLowerCase())
     console.log(procuraN)
-}
+};
 
 //procurarNome(pessoas, "Jonas")
 
@@ -67,12 +67,23 @@ function procurarNome(array, nomes){
 
 function converteEmFrase(array){
     console.log(array.map(p => `${p.nome} tem ${p.idade} anos.`))
-}
+};
 
 //converteEmFrase(pessoas);
 
 //Exe 6
 
-function MédiaIdades(){
-   let somaIdades = pessoas.reduce((acc, p) => (acc + p.idade), 0);
-}
+function mediaIdades(){
+   let somaIdade = pessoas.reduce((acc, p) => (acc + p.idade), 0);
+   console.log(somaIdade/pessoas.length)
+};
+
+//mediaIdades()
+
+function somaIdades(){
+   let somaIdade = pessoas.reduce((acc, p) => (acc + p.idade), 0);
+   console.log(somaIdade)
+
+};
+
+//somaIdades()
