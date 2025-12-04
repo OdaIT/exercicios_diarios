@@ -594,7 +594,7 @@ for(let i = 0; i < frutas.length; i++){
 
 //Exe Extra
 
-const numeros = [1,2,3];
+//const numeros = [1,2,3];
 for(let i = 0; i < numeros.length; i++){
     numeros[i] = numeros[i] * 2;
     console.log(`${numeros[i]}`)
@@ -723,3 +723,122 @@ function mostraProdutos(){
 }
 
 //mostraProdutos()
+
+//Aula do dia 26/11/2025 Exercícios Guiados – Arrays em JavaScript
+
+const fruta = ["maçã", "banana", "laranja"];
+
+//Exe 5
+
+function imprimeArrayForEach(){
+    fruta.forEach((valor,indice) => {
+    console.log(`Fruta : ${valor}`)
+});
+};
+
+//Exe 6
+//const numeros = [1, 2, 3, 4, 5];
+
+function quadrado(array){
+    const quadrados = array.map(n => n ** 2);
+console.log(quadrados);
+};
+
+//quadrado(numeros);
+
+
+// Exercícios Guiados – Arrays de Objetos com map(), filter() e reduce()
+
+//Exe 1
+
+const pessoas = [
+    { nome : "Ana", idade : 20},
+    { nome : "João", idade : 22},
+    { nome : "Maria", idade : 19},
+    { nome : "Jonas", idade : 28}
+];
+
+function extrairNome(array,dado){
+    const listaNomes = array.map(pessoa => pessoa[dado]);
+    console.log(listaNomes);
+};
+
+//extrairNome(pessoas,"idade");
+
+//Exe 2
+
+function adicionarPropriedade(){
+
+};
+
+//Exe 3
+
+function maiorDeIdade(array,dado){
+    const maiorIdade = array.filter(i => i[dado] >= 25)
+    console.log(maiorIdade)
+};
+
+//maiorDeIdade(pessoas, "idade");
+
+//Exe 4
+
+function procurarNome(array, nomes){
+    const procuraN = array.filter(i => i.nome.toLowerCase() === nomes.toLowerCase())
+    console.log(procuraN)
+};
+
+//procurarNome(pessoas, "Jonas")
+
+//Exe 5
+
+function converteEmFrase(array){
+    console.log(array.map(p => `${p.nome} tem ${p.idade} anos.`))
+};
+
+//converteEmFrase(pessoas);
+
+//Exe 6
+
+function mediaIdades(){
+   let somaIdade = pessoas.reduce((acc, p) => (acc + p.idade), 0);
+   console.log(somaIdade/pessoas.length)
+};
+
+//mediaIdades()
+
+function somaIdades(){
+   let somaIdade = pessoas.reduce((acc, p) => (acc + p.idade), 0);
+   console.log(somaIdade)
+
+};
+
+//somaIdades()
+
+
+//M1 Dia 21: Debugging e Erros
+
+//Parte 2: Interpretação e Console
+
+//Identificação de Erros
+
+//1 falta o ) - Syntax
+//2 Syntax, Upper num numero
+//3 variavel não declarada - Reference
+//4 alterar uma const - Type
+//5 Parte 2: Interpretação e Console - Syntax, funcão sem nome
+
+//Previsão de Debug
+
+//6 False
+//7 Aparece a mensagem 'Entrou' porque x foi igualado a 10, deveria ser ==
+//8 Out of range , undefined, a lista apenas contem dois elementos
+//9 a propriedade nome não existe
+//10 Nan, o segundo valor é uma string
+
+/*Ferramentas do Console
+
+console.warn("Bateria Fraca")
+console.error("Falha no sistema")
+console.table([{id:1, nome:"Ana"}, {id:2, nome:"Rui"}])
+console.clear()
+console.log(typeof temp)*/
