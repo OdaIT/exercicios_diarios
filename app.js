@@ -16,10 +16,7 @@ const numeros = [1, 2, 3, 4, 5];
 function quadrado(array){
     const quadrados = array.map(n => n ** 2);
 console.log(quadrados);
-}
-
-//quadrado(numeros);
-
+};
 
 // Exercícios Guiados – Arrays de Objetos com map(), filter() e reduce()
 
@@ -35,31 +32,27 @@ const pessoas = [
 function extrairNome(array,dado){
     const listaNomes = array.map(pessoa => pessoa[dado]);
     console.log(listaNomes);
-}
-
-//extrairNome(pessoas,"idade");
+};
 
 //Exe 2
 
 function adicionarPropriedade(){
 
-}
+};
 
 //Exe 3
 
 function maiorDeIdade(array,dado){
     const maiorIdade = array.filter(i => i[dado] >= 25)
     console.log(maiorIdade)
-}
-
-//maiorDeIdade(pessoas, "idade");
+};
 
 //Exe 4
 
 function procurarNome(array, nomes){
     const procuraN = array.filter(i => i.nome.toLowerCase() === nomes.toLowerCase())
     console.log(procuraN)
-}
+};
 
 //procurarNome(pessoas, "Jonas")
 
@@ -67,12 +60,21 @@ function procurarNome(array, nomes){
 
 function converteEmFrase(array){
     console.log(array.map(p => `${p.nome} tem ${p.idade} anos.`))
-}
+};
 
 //converteEmFrase(pessoas);
 
 //Exe 6
 
-function MédiaIdades(){
+function mediaIdades(){
    let somaIdades = pessoas.reduce((acc, p) => (acc + p.idade), 0);
-}
+   console.log(`Idade média : ${somaIdades/pessoas.length} anos.`)
+};
+
+
+//imprimeArrayForEach()
+//quadrado(numeros);
+//extrairNome(pessoas,"idade");
+//maiorDeIdade(pessoas, "idade");
+//procurarNome(pessoas, "Jonas")
+//mediaIdades();
