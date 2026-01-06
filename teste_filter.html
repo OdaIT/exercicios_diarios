@@ -1,0 +1,76 @@
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Pratos de Comida</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+.filtros { margin-bottom: 20px; }
+.pratos { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.prato { border: 1px solid #ccc; border-radius: 8px; padding: 12px; }
+.prato h3 { margin: 0 0 8px; }
+</style>
+</head>
+<body>
+
+
+<h1>Cardápio</h1>
+
+
+<div class="filtros">
+<strong>Categorias:</strong><br />
+<label><input type="checkbox" value="italiana" checked /> Italiana</label><br />
+<label><input type="checkbox" value="brasileira" checked /> Brasileira</label><br />
+<label><input type="checkbox" value="japonesa" checked /> Japonesa</label><br />
+<label><input type="checkbox" value="vegana" checked /> Vegana</label>
+</div>
+
+
+<div class="pratos" id="listaPratos"></div>
+
+
+<script>
+const pratos = [
+{ nome: 'Pizza Margherita', categoria: 'italiana' },
+{ nome: 'Lasanha', categoria: 'italiana' },
+{ nome: 'Feijoada', categoria: 'brasileira' },
+{ nome: 'Moqueca', categoria: 'brasileira' },
+{ nome: 'Sushi', categoria: 'japonesa' },
+{ nome: 'Yakissoba', categoria: 'japonesa' },
+{ nome: 'Hambúrguer Vegano', categoria: 'vegana' },
+{ nome: 'Salada de Grão-de-bico', categoria: 'vegana' }
+];
+
+
+const lista = document.getElementById('listaPratos');
+const checkboxes = document.querySelectorAll('.filtros input[type=checkbox]');
+
+
+function renderizar() {
+const categoriasAtivas = Array.from(checkboxes)
+.filter(cb => cb.checked)
+.map(cb => cb.value);
+
+
+lista.innerHTML = '';
+
+
+pratos
+.filter(prato => categoriasAtivas.includes(prato.categoria))
+.forEach(prato => {
+const div = document.createElement('div');
+div.className = 'prato';
+div.innerHTML = `<h3>${prato.nome}</h3><p>${prato.categoria}</p>`;
+lista.appendChild(div);
+});
+}
+
+
+checkboxes.forEach(cb => cb.addEventListener('change', renderizar));
+
+
+renderizar();
+</script>
+
+
+</body>
+</html>
